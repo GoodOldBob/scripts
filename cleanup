@@ -1,7 +1,9 @@
 #!/usr/bin/env sh
-# script used to delete all nonessential files in the screenshots directory,
+# script used to delete all nonessential files in the directory,
 # i.e. image files and other garbage
 
+read -p "How many file types would you like to remove?: " count
+echo "What kind of file extensions would you like to remove (for example: .png): "
 echo "WARNING: THIS WILL DELETE ALL .PNG AND .HTML FILES FROM THIS DIRECTORY."
 read -p "ARE YOU SURE YOU WANT TO CONTINUE? (Y/N): " prompt
 
