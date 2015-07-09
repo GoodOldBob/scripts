@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+# script used to delete all nonessential files in the screenshots directory,
+# i.e. image files and other garbage
+
+echo "WARNING: THIS WILL DELETE ALL .IMG AND .HTML FILES FROM THIS DIRECTORY."
+read -p "ARE YOU SURE YOU WANT TO CONTINUE? (Y/N): " prompt
+
+if [[ $prompt == Y ]] || [[ $prompt == y ]]; then
+  for file in ./*.png; do
+    rm $file 2>/dev/null
+  done
+  for file in ./*.html; do
+    rm $file 2>/dev/null
+  done
+  echo "Cleanup successful."
+else
+  echo "Exiting..."
+  exit 0
+fi
