@@ -17,12 +17,15 @@ while true; do
   printf "%s" "WARNING: THIS WILL DELETE ALL $type FILE TYPES FROM THE $dir DIRECTORY."
   read -p "ARE YOU SURE YOU WANT TO CONTINUE? (Y/N): " cont
 
-  eval dir=$dir
+  eval path="$dir/*$type"
+  let 'count=0'
   if [[ $cont == Y ]] || [[ $cont == y ]]; then
-    for file in "$dir/*$type"; do
+    for file in $path; do
+      printf $s "removing $file"
       rm $file 2>/dev/null
+      ((count++))
     done
-    printf "%s\n" "Cleanup successful."
+    printf "%s\n" "$count file(s) successfully removed."
   else
     printf "%s\n" "Exiting..."
     exit 0
