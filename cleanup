@@ -7,7 +7,7 @@ while true; do
   (for example: .png)? Type done to exit: " type
 
   if [[ $type == "done" ]]; then
-  	printf $s "Exiting..."
+  	printf "%s\n" "Exiting..."
   	exit 0
   fi
 
@@ -19,9 +19,9 @@ while true; do
     for file in $dir/*$type; do
       rm $file 2>/dev/null
     done
-    printf %s "Cleanup successful."
+    printf "%s\n" "Cleanup successful."
   else
-    echo "Exiting..."
+    printf "%s\n" "Exiting..."
     exit 0
   fi
 done
