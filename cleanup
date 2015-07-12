@@ -2,9 +2,11 @@
 # script used to delete all nonessential files in the directory,
 # i.e. image files and other garbage
 
+PROMPT="What kind of file extensions would you like to remove \
+(for example: .png)? Type done to exit: "
+
 while true; do
-  read -p "What kind of file extensions would you like to remove \
-  (for example: .png)? Type done to exit: " type
+  read -p "$PROMPT" type
 
   if [[ $type == "done" ]]; then
   	printf "%s\n" "Exiting..."
@@ -12,12 +14,13 @@ while true; do
   fi
 
   read -p "What directory do you want to delete from?: " dir
-  echo "WARNING: THIS WILL DELETE ALL $type FILE TYPES FROM the $dir DIRECTORY."
-  read -p "ARE YOU SURE YOU WANT TO CONTINUE? (Y/N): " prompt
+  printf "%s" "WARNING: THIS WILL DELETE ALL $type FILE TYPES FROM THE $dir DIRECTORY."
+  read -p "ARE YOU SURE YOU WANT TO CONTINUE? (Y/N): " cont
 
-  if [[ $prompt == Y ]] || [[ $prompt == y ]]; then
-    for file in $dir/*$type; do
-      rm $file 2>/dev/null
+  eval dir=$dir
+  if [[ $cont == Y ]] || [[ $cont == y ]]; then
+    for file in "$dir/*$type"; do
+      rm $file #2>/dev/null
     done
     printf "%s\n" "Cleanup successful."
   else
