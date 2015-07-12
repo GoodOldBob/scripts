@@ -20,7 +20,7 @@ while true; do
   eval dir=$dir
   if [[ $cont == Y ]] || [[ $cont == y ]]; then
     for file in "$dir/*$type"; do
-      rm $file #2>/dev/null
+      rm $file 2>/dev/null
     done
     printf "%s\n" "Cleanup successful."
   else
