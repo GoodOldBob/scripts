@@ -1,12 +1,13 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 # script used to delete all nonessential files in the directory,
 # i.e. image files and other garbage
 
-while [[true]]; then
+while true; do
   read -p "What kind of file extensions would you like to remove \
   (for example: .png)? Type done to exit: " type
-  
+
   if [[ $type == "done" ]]; then
+  	printf $s "Exiting..."
   	exit 0
   fi
 
@@ -18,8 +19,9 @@ while [[true]]; then
     for file in $dir/*$type; do
       rm $file 2>/dev/null
     done
-    echo "Cleanup successful."
+    printf %s "Cleanup successful."
   else
     echo "Exiting..."
     exit 0
   fi
+done
