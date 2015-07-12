@@ -2,20 +2,24 @@
 # script used to delete all nonessential files in the directory,
 # i.e. image files and other garbage
 
-read -p "What kind of file extensions would you like to remove \
-(for example: .png)? Type done to exit: " type
-echo "WARNING: THIS WILL DELETE ALL $type FILE TYPES FROM THIS DIRECTORY."
-read -p "ARE YOU SURE YOU WANT TO CONTINUE? (Y/N): " prompt
+while [[true]]; then
+  read -p "What kind of file extensions would you like to remove \
+  (for example: .png)? Type done to exit: " type
+  
+  if [[ $type == "done" ]]; then
+  	exit 0
+  fi
 
-if [[ $prompt == Y ]] || [[ $prompt == y ]]; then
-  for file in ./*.png; do
-    rm $file 2>/dev/null
-  done
-  for file in ./*.html; do
-    rm $file 2>/dev/null
-  done
-  echo "Cleanup successful."
-else
-  echo "Exiting..."
-  exit 0
-fi
+  read -p "What directory do you want to delete from?: " dir
+  echo "WARNING: THIS WILL DELETE ALL $type FILE TYPES FROM the $dir DIRECTORY."
+  read -p "ARE YOU SURE YOU WANT TO CONTINUE? (Y/N): " prompt
+
+  if [[ $prompt == Y ]] || [[ $prompt == y ]]; then
+    for file in $dir/*$type; do
+      rm $file 2>/dev/null
+    done
+    echo "Cleanup successful."
+  else
+    echo "Exiting..."
+    exit 0
+  fi
