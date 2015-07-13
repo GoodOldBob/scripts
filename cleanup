@@ -13,7 +13,7 @@ while true; do
   	exit 0
   fi
 
-  read -p "What directory do you want to delete from?: " dir
+  read -p "Type the path to the directory you want to delete from: " dir
   printf "%s" "WARNING: THIS WILL DELETE ALL $type FILE TYPES FROM THE $dir DIRECTORY."
   read -p "ARE YOU SURE YOU WANT TO CONTINUE? (Y/N): " cont
 
