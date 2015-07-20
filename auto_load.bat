@@ -2,9 +2,6 @@
 rem print usage message
 echo Usage: This script allows the user to run the python script 
 echo "gomez_load_data.py" for any number of consecutive days. 
-echo Before running make sure that the script is in the same directory, and
-echo that USE_TZ is set to True in settings.py (switch back to False when
-echo using calc_monthly_data.py but keep True if using calc_weekly_data.py).
 echo Make sure to use single digits if the day or month you are inputting 
 echo is a single digit (e.g. 1 instead of 01 for January).
 pause
