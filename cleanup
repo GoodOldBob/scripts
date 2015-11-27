@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # script used to delete all nonessential files in the directory,
-# i.e. image files and other garbage
+# i.e. image files and other garbage in certain projects im doing
 
 PROMPT="What kind of file extensions would you like to remove \
 (for example: .png)? Type done to exit: "
