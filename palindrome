@@ -1,4 +1,4 @@
-
+#!/usr/bin/env bash
 # specify palindrome possibility as args
 
 if [ $# -eq 0 ] ; then
