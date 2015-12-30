@@ -6,5 +6,13 @@ if [ $# -eq 0 ] ; then
   exit 1
 fi
 
-testit="$(echo $@ | sed 's/[^[:alpha:]]//g' | tr '[:upper:]' '[:lower:]')"
+test="$(echo $@ | sed 's/[^[:alpha:]]//g' | tr '[:upper:]' '[:lower:]')"
 backwards="$(echo $testit | rev)"
+
+if [ "$test" = "$backwards" ] ; then
+  echo "$@ is a palindrome"
+else
+  echo "$@ is not a palindrome"
+fi
+
+exit 0
