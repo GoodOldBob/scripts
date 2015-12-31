@@ -7,7 +7,7 @@ if [ $# -eq 0 ] ; then
 fi
 
 test="$(echo $@ | sed 's/[^[:alpha:]]//g' | tr '[:upper:]' '[:lower:]')"
-backwards="$(echo $testit | rev)"
+backwards="$(echo $test | rev)"
 
 if [ "$test" = "$backwards" ] ; then
   echo "$@ is a palindrome"
