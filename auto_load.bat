@@ -27,15 +27,15 @@ if [%$month1%]==[%$month2%] (
         python gomez_load_data.py %$year%-%$month1%-%%G
     ) 
 ) else (
-	set /P $monthLast="Please enter the last day of this month [DD]: "
+    set /P $monthLast="Please enter the last day of this month [DD]: "
     rem run the load data script for each month
     for /L %%H in (%$month1%, 1, %$month2%) do (
-	    if [%%H]==[%$month1%] (
-		    rem run the load data script for each day in the month
+        if [%%H]==[%$month1%] (
+            rem run the load data script for each day in the month
             for /L %%I in (%$day1%, 1, %$monthLast%) do ( 
                 python gomez_load_data.py %$year%-%$month1%-%%I
             )
-		rem if on last month then run the load data script until the final day
+        rem if on last month then run the load data script until the final day
         ) else (
             for /L %%J in (1, 1, %$day2%) do ( 
                 python gomez_load_data.py %$year%-%$month1%-%%J
