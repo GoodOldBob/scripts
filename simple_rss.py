@@ -31,7 +31,7 @@ def get_lookism():
 
 def main():
     get_mangastream()
-    get_lookism
+    get_lookism()
 
 if __name__ == "__main__":
     main()
