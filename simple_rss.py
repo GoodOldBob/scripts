@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # for all my simple RSS needs on the CLI
 import feedparser
 
