@@ -1,17 +1,20 @@
 #!/usr/bin/env python3
 # for all my simple RSS needs on the CLI
 import feedparser
+import re
 
 MANGASTREAM_RSS_URL = "http://mangastream.com/rss"
 MANGAFOX_LOOKISM_RSS_URL = "http://mangafox.me/rss/lookism.xml"
 
-def get_mangastream():
+def get_mangastream(title_list):
     feed = feedparser.parse(MANGASTREAM_RSS_URL)
     entries = []
 
     for entry in feed.entries:
-        title_and_date = [entry.title, entry.published]
-        entries.append(title_and_date)
+        for title in title_list:
+            if entry.title == title:
+                title_and_date = [entry.title, entry.published]
+                entries.append(title_and_date)
 
     # print out entries with the most recent output last
     entries.reverse()
@@ -31,7 +34,8 @@ def get_lookism():
         counter = counter + 1
 
 def main():
-    get_mangastream()
+    title_list = ["Haikyuu!"]
+    get_mangastream(title_list)
     get_lookism()
 
 if __name__ == "__main__":
