@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # for all my simple RSS needs on the CLI
 import feedparser
-import re
 
 MANGASTREAM_RSS_URL = "http://mangastream.com/rss"
 MANGAFOX_LOOKISM_RSS_URL = "http://mangafox.me/rss/lookism.xml"
@@ -12,7 +11,7 @@ def get_mangastream(title_list):
 
     for entry in feed.entries:
         for title in title_list:
-            if entry.title == title:
+            if title in entry.title:
                 title_and_date = [entry.title, entry.published]
                 entries.append(title_and_date)
 
