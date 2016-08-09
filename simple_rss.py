@@ -33,7 +33,10 @@ def get_lookism():
         counter = counter + 1
 
 def main():
-    title_list = ["Haikyuu!"]
+    titles_list = []
+    titles_size = input("Enter number of titles: ")
+    for i in range(titles_size):
+        title_list.append(input("Enter title" + i + ": "))
     get_mangastream(title_list)
     get_lookism()
 
